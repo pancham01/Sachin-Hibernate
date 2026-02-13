@@ -16,16 +16,6 @@ public class Main {
 	public static void main(String[] args) {
 		Employee e = new  Employee( "Kunal", "male", 22200);
 		
-		
-		
-		
-		
-//		Configuration cfg = new Configuration().configure("hibernatee.cfg.xml");
-//		SessionFactory sessionFactory = cfg.buildSessionFactory();
-//		Session session = sessionFactory.openSession();
-//		Transaction tx = session.beginTransaction();
-		
-		
 		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernatee.cfg.xml").build();
 		Metadata metaData = new MetadataSources(ssr).getMetadataBuilder().build();
 		SessionFactory sf = metaData.buildSessionFactory();
