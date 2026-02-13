@@ -4,9 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="com.keshav.entity.Employee">
-		<id name="id" />
-		<property name="name" />
+	<class name="com.keshav.entity.Employee" table="mytable">
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" column="empName"/>
 		<property name="gender" />
 		<property name="salary" />
 
