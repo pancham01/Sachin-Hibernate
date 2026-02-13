@@ -25,10 +25,12 @@ public class HibernateConfig {
 		prop.put(Environment.FORMAT_SQL,"true");
 		
 		
-		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(prop).build();
-		Metadata metaData = new MetadataSources(ssr).addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build();
-		SessionFactory sf = metaData.buildSessionFactory();
-		return sf;
+//		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().applySettings(prop).build();
+//		Metadata metaData = new MetadataSources(ssr).
+//				addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build();
+//		SessionFactory sf = metaData.buildSessionFactory();
+
+		return  new MetadataSources(new StandardServiceRegistryBuilder().applySettings(prop).build()).addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build().buildSessionFactory();
 	}
 
 }
