@@ -30,7 +30,7 @@ public class HibernateConfig {
 //				addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build();
 //		SessionFactory sf = metaData.buildSessionFactory();
 
-		return  new MetadataSources(new StandardServiceRegistryBuilder().applySettings(prop).build()).addAnnotatedClass(com.keshav.entity.Employee.class).getMetadataBuilder().build().buildSessionFactory();
+		return  new MetadataSources(new StandardServiceRegistryBuilder().applySettings(prop).build()).addAnnotatedClasses(com.keshav.entity.Employee.class, com.keshav.entity.Address.class).getMetadataBuilder().build().buildSessionFactory();
 	}
 
 }
