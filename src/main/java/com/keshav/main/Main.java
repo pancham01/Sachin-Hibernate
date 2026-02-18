@@ -19,19 +19,22 @@ public class Main {
 		e.setName("Vinay");
 		e.setGender("Male");
 		e.setSalary(444444);
-//		e.setAddress(add1);
+		e.setAddress(add1);
+		add1.setEmployee(e);
 
 		SessionFactory sf = HibernateConfig.getSessionFactory();
 
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		session.persist(e);
-		session.persist(add1);
-		tx.commit();
+//		session.persist(e);
+//		session.persist(add1);
+//		tx.commit();
 
-		Employee employee = session.find(Employee.class, 1);
+		
 
-		System.out.println(employee);
+//		Address ad = new Address();
+		Address address = session.find(Address.class, 15);
+		System.out.println(address);
 
 	}
 
