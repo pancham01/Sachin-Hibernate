@@ -1,13 +1,17 @@
 package com.keshav.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-@Entity(name = "myEmp")
+@Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,25 +21,27 @@ public class Employee {
 	private String gender;
 	private int salary;
 	
-	@OneToOne
-	private Address address;
+	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "employee")
+	private List<Address> addresses;
 	
 	public Employee() {
 		super();
 	}
 
-	public Employee(String name, String gender, int salary, Address address) {
+	public Employee(String name, String gender, int salary, List<Address> addresses) {
 		this.name = name;
 		this.gender = gender;
 		this.salary = salary;
-		this.address = address;
+		this.addresses = addresses;
 	}
 
-	public Address getAddress() {
-		return address;
+	
+	public List<Address> getAddresses() {
+		return addresses;
 	}
-	public void setAddress(Address address) {
-		this.address = address;
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 	public int getId() {
